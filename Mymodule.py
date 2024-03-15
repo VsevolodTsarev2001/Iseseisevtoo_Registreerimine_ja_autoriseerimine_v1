@@ -16,14 +16,14 @@ def kirjuta_pas_ja_log(fail:str,l=[], p=[]):
     for i in range(len(l)):
         f.write(l[i]+":"+p[i]+"\n")
     f.close()
-def loe_pas_ja_log(fail:str, l, p)->any:
+def loe_pas_ja_log(fail:str)->any:
     """Loeb failist andmed, mis oli sisestatud formaadis "login:password" igas reas eraldi
     :param str fail:
     :rtype: list
     """
-    f=open(fail,'r',encoding="utf-8")#try
     l=[]
     p=[]
+    f=open(fail,'r',encoding="utf-8")#try
     for line in f:
         n=line.find(":")# login:password - разделитель
         l.append(line[0:n].strip())
